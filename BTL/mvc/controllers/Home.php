@@ -2,7 +2,7 @@
     class Home extends Controller{
         public function Index(){
         }
-        public function Show($per_page,$page){
+        public function Show($page){
             //có thể xử lý các hàm lấy dữ liệu từ DB ở đây, sau đó đưa vào list để 
             //truyền vào view
             $source=$this->model("user_account");
@@ -10,7 +10,7 @@
             $this->view("User_layout",[
                         "func"=>"Home/Show",
                         "page"=>"contact",
-                        "source"=>$source->GetAll($per_page,$page)
+                        "source"=>$source->GetAll($page)
                     ]);
             
         }

@@ -1,6 +1,5 @@
 <?php
     class App{
-        protected $route="User";
         protected $controller="Home";
         protected $action="Index";
         protected $params=[];
