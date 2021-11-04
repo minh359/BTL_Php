@@ -84,7 +84,7 @@
                         <tbody>
                           <tr>
                             <td>
-                              <img class="img-sm rounded-circle" src="/BTL/mvc/views/Admin_pages/images/faces/face1.jpg" alt="profile image"> Katie Holmes
+                              <img class="img-sm rounded-circle" src="/BTL/mvc/views/Admin_pages/images/faces/face1.jpg" alt="profile image"> Nguyễn Hoàng Minh
                             </td>
                             <td>$3621</td>
                             <td><img src="/BTL/mvc/views/Admin_pages/images/dashboard/alipay.png" alt="alipay" class="gateway-icon mr-2"> alipay</td>
@@ -96,7 +96,7 @@
                           </tr>
                           <tr>
                             <td>
-                              <img class="img-sm rounded-circle" src="/BTL/mvc/views/Admin_pages/images/faces/face2.jpg" alt="profile image"> Minnie Copeland
+                              <img class="img-sm rounded-circle" src="/BTL/mvc/views/Admin_pages/images/faces/face2.jpg" alt="profile image"> Đỗ Quang Khải
                             </td>
                             <td>$6245</td>
                             <td><img src="/BTL/mvc/views/Admin_pages/images/dashboard/paypal.png" alt="alipay" class="gateway-icon mr-2"> Paypal</td>
@@ -106,30 +106,7 @@
                               <div class="badge badge-danger p-2">Pending</div>
                             </td>
                           </tr>
-                          <tr>
-                            <td>
-                              <img class="img-sm rounded-circle" src="/BTL/mvc/views/Admin_pages/images/faces/face3.jpg" alt="profile image"> Rodney Sims
-                            </td>
-                            <td>$9265</td>
-                            <td><img src="/BTL/mvc/views/Admin_pages/images/dashboard/alipay.png" alt="alipay" class="gateway-icon mr-2"> alipay</td>
-                            <td>12 dec 2019</td>
-                            <td>26 Aug 2019</td>
-                            <td>
-                              <div class="badge badge-warning p-2">Failed</div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img class="img-sm rounded-circle" src="/BTL/mvc/views/Admin_pages/images/faces/face4.jpg" alt="profile image"> Carolyn Barker
-                            </td>
-                            <td>$2263</td>
-                            <td><img src="/BTL/mvc/views/Admin_pages/images/dashboard/alipay.png" alt="alipay" class="gateway-icon mr-2"> alipay</td>
-                            <td>30 Sep 2019</td>
-                            <td>20 Oct 2019</td>
-                            <td>
-                              <div class="badge badge-success p-2">Paid</div>
-                            </td>
-                          </tr>
+                          
                         </tbody>
                       </table>
                     </div>

@@ -33,15 +33,15 @@
           <table class="table table-hover table-bordered">
             <thead>
               <tr>
-                <th style="width:50px">id<i class=' icon-user'></i></th>
-                <th style="width:150px">Name<i class=' icon-lock'></i></th>
-                <th style="width:50px">Description<i class='  icon-user-following'></i></th>
-                <th style="width:50px">Avatar<i class=' icon-calendar'></i></th>
-                <th style="width:50px">State<i class='  icon-envelope-open'></i></th>
-                <th style="width:50px">Post date<i class='  icon-user-following'></i></th>
-                <th style="width:50px">Author<i class=' icon-calendar'></i></th>
-                <th style="width:50px">Category<i class='  icon-envelope-open'></i></th>
-                <th style="text-align: center;">Action<i  class='icon-settings'></i></th>
+                <th>id<i class=' icon-user'></i></th>
+                <th >Name<i class=' icon-lock'></i></th>
+                <th >Description<i class='  icon-user-following'></i></th>
+                <th >Avatar<i class=' icon-calendar'></i></th>
+                <th >State<i class='  icon-envelope-open'></i></th>
+                <th >Post date<i class='  icon-user-following'></i></th>
+                <th >Author<i class=' icon-calendar'></i></th>
+                <th >Category<i class='  icon-envelope-open'></i></th>
+                <th >Action<i  class='icon-settings'></i></th>
               </tr>
             </thead>
             <tbody>
@@ -56,17 +56,17 @@
                 //tên các cột phải trùng với tên cột trong db
                 echo "<tr>
                 <td><label class='badge badge-email'>".$row["id"]."</label></td>
-                <td>".$row["name"]."</td>
-                <td>".$row["description"]."</td>
-                <td>".$row["avatar"]."</td>
+                <td>".substr($row["name"],0,30)." ...</td>
+                <td>".substr($row["description"],0,30)." ...</td>
+                <td><img src='".$row["avatar"]."'></td>
                 <td>".$row["state"]."</td>
                 <td>".$row["post_date"]."</td>
                 <td class='text-success'>". $row["author_id"]. ".</td>
                 <td><label class='badge badge-email'>".$row["category_id"]."</label></td>
                 <td style='text-align: center;'>
-                    <a href='/BTL/Admin/CrudUser/View/".$row["id"]."/'><i class='icon-eye'></i></a>
-                    <a href='/BTL/Admin/CrudUser/Update/".$row["id"]."/'><i class='icon-wrench'></i></a>
-                    <a href='/BTL/Admin/CrudUser/Delete/".$row["id"]."'><i class='icon-trash'></i></a>
+                    <a href='/BTL/Admin/CrudNovel/View/".$row["id"]."/'><i class='icon-eye'></i></a>
+                    <a href='/BTL/Admin/CrudNovel/Update/".$row["id"]."/'><i class='icon-wrench'></i></a>
+                    <a href='/BTL/Admin/CrudNovel/Delete/".$row["id"]."'><i class='icon-trash'></i></a>
                 </td>
                 </tr>";
               }
@@ -75,7 +75,7 @@
           </table>
           <?php if (!empty($data["has_paging"])) : ?>
             <div class="clear-both"></div>
-            <a href='/BTL/Admin/CrudUser/Create/0'><i class='icon-plus'></i></a>
+            <a href='/BTL/Admin/CrudNovel/Create/0'><i class='icon-plus'></i></a>
             <?php
             include './mvc/views/Admin_pages/partials/pagination.php';
             ?>

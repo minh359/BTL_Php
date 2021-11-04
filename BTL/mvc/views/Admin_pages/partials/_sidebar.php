@@ -23,11 +23,30 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/BTL/Admin/UserTable/1">
-                <span class="menu-title">Tables</span>
+                <span class="menu-title">User Table</span>
                 <i class="icon-grid menu-icon"></i>
               </a>
             </li>
-            <li class="nav-item nav-category"><span class="nav-link">Sample Pages</span></li>
+            <li class="nav-item">
+              <a class="nav-link" href="/BTL/Admin/NovelTable/1">
+                <span class="menu-title">Novel Table</span>
+                <i class="icon-grid menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/BTL/Admin/UserTable/1">
+                <span class="menu-title">Category</span>
+                <i class="icon-grid menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/BTL/Admin/UserTable/1">
+                <span class="menu-title">Author</span>
+                <i class="icon-grid menu-icon"></i>
+              </a>
+            </li>
+            </li>
+            <li class="nav-item nav-category"><span class="nav-link">Page Info</span></li>
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
                 <span class="menu-title">General Pages</span>
@@ -35,9 +54,9 @@
               </a>
               <div class="collapse" id="auth">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="../mvc/views/Admin_pages/pages/samples/login.html"> Login </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="../mvc/views/Admin_pages/pages/samples/register.html"> Register </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="../mvc/views/Admin_pages/pages/samples/blank-page.html"> Blank Page </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/BTL/mvc/views/Admin_pages/pages/samples/login.html"> Login </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/BTL/mvc/views/Admin_pages/pages/samples/register.html"> Register </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/BTL/mvc/views/Admin_pages/pages/samples/blank-page.html"> Info </a></li>
                 </ul>
               </div>
             </li>

@@ -37,4 +37,18 @@
   <script src="/BTL/mvc/views/Admin_pages/js/dashboard.js"></script>
   <!-- End custom js for this page -->
   <script src="/BTL/public/js/user.js"></script>
+  <script src="https://cdn.tiny.cloud/1/d5xkm37lhhdhglxdlbmt0eg9ug9mkwhcne5zrfikmlq7qxoi/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+  <script type="text/javascript">
+    tinymce.init({
+        selector: "textarea",
+        themes: "modern",   
+        plugins: [
+            "advlist autolink lists link image charmap print preview anchor",
+            "searchreplace visualblocks code fullscreen",
+            "insertdatetime media table contextmenu paste moxiemanager"
+        ],
+        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"   
+    });
+    </script>
 </head>

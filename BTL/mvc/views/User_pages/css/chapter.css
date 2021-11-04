@@ -1,0 +1,16 @@
+
+  #border{
+    border: double;
+  }
+  
+  #chuong{
+      margin-left: 35%;
+      margin-right: 35%;
+  }
+
+  #btn{
+    margin-top: 10px;
+    font-size: medium;
+    background-color: royalblue;
+    color: aliceblue;
+  }

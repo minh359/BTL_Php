@@ -9,7 +9,7 @@
             // truyền tên master view, page, tham số
             $this->view("User_layout",[
                         "func"=>"Home/Show",
-                        "page"=>"contact",
+                        "page"=>"Index",
                         "source"=>$source->GetAll($page)
                     ]);
             

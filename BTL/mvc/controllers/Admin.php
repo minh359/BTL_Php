@@ -91,7 +91,7 @@
                 $this->view("Admin_layout",[
                     "func"=>"Admin/CrudNovel",
                     "page"=>"pages/samples/detail_novel",
-                    "method"=>$method,
+                    "method"=>$method
                 ]);
             }
             else
@@ -99,9 +99,33 @@
                 $source=$this->model("novel");
                 $this->view("Admin_layout",[
                     "func"=>"Admin/CrudNovel",
-                    "page"=>"pages/samples/novel_detail",
+                    "page"=>"pages/samples/detail_novel",
                     "method"=>$method,
-                    "source"=>$source->GetById($id)
+                    "source"=>$source->GetById($id),
+                    "chapter"=>$this->model("chapter")->GetByNovel($id)
+                ]);
+            }
+            
+        }
+
+        public function CrudChapter($method,$id)
+        {
+            if($method=='Create' && $id=='0')
+            {
+                $this->view("Admin_layout",[
+                    "func"=>"Admin/CrudChapter",
+                    "page"=>"pages/samples/detail_chapter",
+                    "method"=>$method
+                ]);
+            }
+            else
+            {
+                $source=$this->model("chapter");
+                $this->view("Admin_layout",[
+                    "func"=>"Admin/CrudChapter",
+                    "page"=>"pages/samples/detail_chapter",
+                    "method"=>$method,
+                    "source"=>$source->GetById($id),
                 ]);
             }
             

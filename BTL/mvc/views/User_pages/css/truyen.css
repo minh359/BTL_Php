@@ -1,0 +1,27 @@
+
+#info{
+  font-size: medium;
+}
+
+#btn{
+  font-size: medium;
+  background-color: royalblue;
+  color: aliceblue;
+}
+
+#border{
+  border: double;
+}
+
+.main{
+  padding: 0px;
+  margin: 0px auto;
+  width: 90%;
+  height: auto;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
