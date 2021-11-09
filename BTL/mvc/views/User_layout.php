@@ -4,19 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Test</title>
-    <style>
-        #header,
-        #footer {
-            background-color: yellow;
-        }
-    </style>
-
 </head>
 
 <body>
-    <div id="header">
-        <p>Header</p>
-    </div>
     <div id="content">
         <?php
         require_once "./mvc/views/User_pages/" . $data["page"] . ".php";
@@ -31,9 +21,6 @@
     <?php
     include './mvc/views/Admin_pages/partials/pagination.php';
     ?>
-    <div id="footer">
-        <p>Footer</p>
-    </div>
 
 </body>
 

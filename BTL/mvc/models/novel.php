@@ -24,10 +24,11 @@
             ];
         
         }
-        public function CreateNovel($username,$pass,$name,$dob,$email)
+        public function CreateNovel($name,$description,$avatar,$author_id,$category_id)
         {
             $result="Thêm thất bại!";
-            if(mysqli_query($this->conn, "INSERT INTO `user_account` VALUES('".$username."','".md5($pass)."','".$name."','".$dob."','".$email."')"))
+            if(mysqli_query($this->conn, "INSERT INTO `novel`(name,description,avatar,post_date,state,author_id,category_id) 
+                VALUES('".$$name."','".$description."','".$avatar."','" . date("Y/m/d") . "','Đang tiến hành','".$author_id."','".$category_id."')"))
             {
                 $result="Thêm thành công!";
             }
@@ -36,7 +37,7 @@
         public function DeleteNovel($id)
         {
             $result="Xóa thất bại!";
-            if(mysqli_query($this->conn, "DELETE from `user_account` Where username='".$id."'"))
+            if(mysqli_query($this->conn, "DELETE from `novel` Where id='".$id."'"))
             {
                 if(mysqli_query($this->conn, "DELETE from `chapter` Where novel_id='".$id."'"))
                 {
@@ -45,12 +46,13 @@
             }
             return $result;
         }
-        public function UpdateNovel($username,$pass,$name,$dob,$email)
+        public function UpdateNovel($id,$name,$description,$avatar,$author_id,$category_id)
         {
             $result=false;
-            if(mysqli_query($this->conn, "UPDATE `user_account` SET password='".md5($pass)."',name='".$name."',
-            dob='".$dob."',
-            email='".$email."' where username='".$username."'"))
+            if(mysqli_query($this->conn, "UPDATE `novel` SET name='".$name."',description='".$description."',
+            avatar='".$avatar."',
+            author_id='".$author_id."',
+            category_id='".$category_id."', where id='".$id."'"))
             {
                 $result=true;
             }

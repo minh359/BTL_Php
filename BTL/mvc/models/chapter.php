@@ -5,12 +5,12 @@
         $item_per_page = 4;
         $current_page = !empty($page) ? $page : 1; //Trang hiện tại
         $offset = ($current_page - 1) * $item_per_page;
-        $novel = mysqli_query($this->conn, "SELECT * FROM `chapter`   LIMIT " . $item_per_page . " OFFSET " . $offset);
+        $chapter = mysqli_query($this->conn, "SELECT * FROM `chapter`   LIMIT " . $item_per_page . " OFFSET " . $offset);
         $totalRecords = mysqli_query($this->conn, "SELECT * FROM `chapter`");
         $totalRecords = $totalRecords->num_rows;
         $totalPages = ceil($totalRecords / $item_per_page);
         return $data = [
-            "sp" => $novel,
+            "sp" => $chapter,
             "currentPage" => $current_page,
             "totalRecords" => $totalRecords,
             "totalPages" => $totalPages
@@ -24,18 +24,27 @@
             ];
         
         }
-        public function GetByNovel($id)
+        public function GetByNovel($id,$page)
         {
-            $lst_chapter = mysqli_query($this->conn, "SELECT * FROM `chapter` Where novel_id=".$id."");
-            return $data=[
-                "sp"=>$lst_chapter
+            $item_per_page = 1;
+            $current_page = !empty($page) ? $page : 1; //Trang hiện tại
+            $offset = ($current_page - 1) * $item_per_page;
+            $lst_chapter = mysqli_query($this->conn, "SELECT * FROM `chapter` Where novel_id=".$id."   LIMIT " . $item_per_page . " OFFSET " . $offset);
+            $totalRecords = mysqli_query($this->conn, "SELECT * FROM `chapter`");
+            $totalRecords = $totalRecords->num_rows;
+            $totalPages = ceil($totalRecords / $item_per_page);
+            return $data = [
+                "sp" => $lst_chapter,
+                "currentPage" => $current_page,
+                "totalRecords" => $totalRecords,
+                "totalPages" => $totalPages
             ];
         
         }
-        public function CreateChapter($username,$pass,$name,$dob,$email)
+        public function CreateChapter($chapter_number,$image,$content,$novel_id)
         {
             $result="Thêm thất bại!";
-            if(mysqli_query($this->conn, "INSERT INTO `user_account` VALUES('".$username."','".md5($pass)."','".$name."','".$dob."','".$email."')"))
+            if(mysqli_query($this->conn, "INSERT INTO `chapter`(chapter_number,image,content,novel_id) VALUES('".$chapter_number."','".$image."','".$content."','".$novel_id."')"))
             {
                 $result="Thêm thành công!";
             }
@@ -50,12 +59,12 @@
                 }
             return $result;
         }
-        public function UpdateChapter($username,$pass,$name,$dob,$email)
+        public function UpdateChapter($id,$chapter_number,$image,$content,$novel_id)
         {
             $result=false;
-            if(mysqli_query($this->conn, "UPDATE `user_account` SET password='".md5($pass)."',name='".$name."',
-            dob='".$dob."',
-            email='".$email."' where username='".$username."'"))
+            if(mysqli_query($this->conn, "UPDATE `chapter` SET chapter_number='".$chapter_number."',image='".$image."',
+            content='".$content."',
+            novel_id='".$novel_id."' where id='".$id."'"))
             {
                 $result=true;
             }

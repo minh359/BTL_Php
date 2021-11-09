@@ -72,6 +72,8 @@
                 "source"=>$source->GetAll(1)
             ]);
         }
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         public function NovelTable($page){
             //có thể xử lý các hàm lấy dữ liệu từ DB ở đây, sau đó đưa vào list để 
             //truyền vào view
@@ -84,9 +86,9 @@
                         "source"=>$source->GetAll($page)
                     ]);
         }
-        public function CrudNovel($method,$id)
+        public function CrudNovel($method,$id,$page)
         {
-            if($method=='Create' && $id=='0')
+            if($method=='Create' && $id=='0' && $page='0')
             {
                 $this->view("Admin_layout",[
                     "func"=>"Admin/CrudNovel",
@@ -96,26 +98,66 @@
             }
             else
             {
+                $s="Admin/CrudNovel/".$method."/".$id;
                 $source=$this->model("novel");
                 $this->view("Admin_layout",[
-                    "func"=>"Admin/CrudNovel",
+                    "func"=>$s,
                     "page"=>"pages/samples/detail_novel",
                     "method"=>$method,
-                    "source"=>$source->GetById($id),
-                    "chapter"=>$this->model("chapter")->GetByNovel($id)
+                    "novel"=>$source->GetById($id),
+                    "has_paging"=>true,
+                    "category"=>$this->model("category")->GetById($id),
+                    "author"=>$this->model("author")->GetById($id),
+                    "source"=>$this->model("chapter")->GetByNovel($id,$page)
                 ]);
             }
             
         }
-
-        public function CrudChapter($method,$id)
+        public function DeleteNovel($id)
+        {
+            $source=$this->model("novel");
+            $source->DeleteNovel($id);
+            $this->view("Admin_layout",[
+                "func"=>"Admin/NovelTable",
+                "page"=>"pages/tables/novel_table",
+                "has_paging"=>true,
+                "source"=>$source->GetAll(1)
+            ]);
+        }
+        public function UpdateNovel($id,$name,$description,$avatar,$author_id,$category_id)
+        {
+            $source=$this->model("novel");
+            $source->UpdateNovel($id,$name,$description,$avatar,$author_id,$category_id);
+            $this->view("Admin_layout",[
+                "func"=>"Admin/NovelTable",
+                "page"=>"pages/tables/novel_table",
+                "has_paging"=>true,
+                "source"=>$source->GetAll(1)
+            ]);
+        }
+        public function CreateNovel($name,$description,$avatar,$author_id,$category_id)
+        {
+            $source=$this->model("novel");
+            $source->CreateNovel($name,$description,$avatar,$author_id,$category_id);
+            $this->view("Admin_layout",[
+                "func"=>"Admin/NovelTable",
+                "page"=>"pages/tables/novel_table",
+                "has_paging"=>true,
+                "source"=>$source->GetAll(1)
+            ]);
+        }
+         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        public function CrudChapter($method,$novel_id,$id)
         {
             if($method=='Create' && $id=='0')
             {
                 $this->view("Admin_layout",[
                     "func"=>"Admin/CrudChapter",
                     "page"=>"pages/samples/detail_chapter",
-                    "method"=>$method
+                    "method"=>$method,
+                    "novel"=>$novel_id
                 ]);
             }
             else
@@ -126,9 +168,50 @@
                     "page"=>"pages/samples/detail_chapter",
                     "method"=>$method,
                     "source"=>$source->GetById($id),
+                    // "novel"=>$this->model("novel")->GetById($id),
+                    "novel"=>$novel_id
                 ]);
             }
             
+        }
+        public function DeleteChapter($id)
+        {
+            $source=$this->model("chapter");
+            $source->DeleteChapter($id);
+            $source2=$this->model("novel");
+                $this->view("Admin_layout",[
+                    "func"=>"Admin/CrudNovel",
+                    "page"=>"pages/samples/detail_novel",
+                    "method"=>"view",
+                    "source"=>$source2->GetById($id),
+                    "chapter"=>$this->model("chapter")->GetByNovel($id)
+                ]);
+        }
+        public function UpdateChapter($id,$chapter_number,$image,$content,$novel_id)
+        {
+            $source=$this->model("chapter");
+            $source->UpdateChapter($id,$chapter_number,$image,$content,$novel_id);
+            $source2=$this->model("novel");
+                $this->view("Admin_layout",[
+                    "func"=>"Admin/CrudNovel",
+                    "page"=>"pages/samples/detail_novel",
+                    "method"=>"view",
+                    "source"=>$source2->GetById($novel_id),
+                    "chapter"=>$this->model("chapter")->GetByNovel($novel_id)
+                ]);
+        }
+        public function CreateChapter($chapter_number,$image,$content,$novel_id)
+        {
+            $source=$this->model("chapter");
+            $source->CreateChapter($chapter_number,$image,$content,$novel_id);
+            $source2=$this->model("novel");
+                $this->view("Admin_layout",[
+                    "func"=>"Admin/CrudNovel",
+                    "page"=>"pages/samples/detail_novel",
+                    "method"=>"view",
+                    "source"=>$source2->GetById($novel_id),
+                    "chapter"=>$this->model("chapter")->GetByNovel($novel_id)
+                ]);
         }
     }
 ?>

@@ -64,9 +64,9 @@
                 <td class='text-success'>". $row["author_id"]. ".</td>
                 <td><label class='badge badge-email'>".$row["category_id"]."</label></td>
                 <td style='text-align: center;'>
-                    <a href='/BTL/Admin/CrudNovel/View/".$row["id"]."/'><i class='icon-eye'></i></a>
-                    <a href='/BTL/Admin/CrudNovel/Update/".$row["id"]."/'><i class='icon-wrench'></i></a>
-                    <a href='/BTL/Admin/CrudNovel/Delete/".$row["id"]."'><i class='icon-trash'></i></a>
+                    <a href='/BTL/Admin/CrudNovel/View/".$row["id"]."/1'><i class='icon-eye'></i></a>
+                    <a href='/BTL/Admin/CrudNovel/Update/".$row["id"]."/1'><i class='icon-wrench'></i></a>
+                    <a href='/BTL/Admin/CrudNovel/Delete/".$row["id"]."/1'><i class='icon-trash'></i></a>
                 </td>
                 </tr>";
               }
@@ -75,7 +75,6 @@
           </table>
           <?php if (!empty($data["has_paging"])) : ?>
             <div class="clear-both"></div>
-            <a href='/BTL/Admin/CrudNovel/Create/0'><i class='icon-plus'></i></a>
             <?php
             include './mvc/views/Admin_pages/partials/pagination.php';
             ?>
