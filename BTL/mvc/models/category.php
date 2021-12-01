@@ -16,6 +16,13 @@
             "totalPages" => $totalPages
         ];
         }
+        public function GetAllCategory()
+        {
+            $category = mysqli_query($this->conn, "SELECT * FROM `category`  ");
+            return $data = [
+                "sp" => $category,
+            ];
+        }
         public function GetById($id)
         {
             $category = mysqli_query($this->conn, "SELECT * FROM `category` Where id=".$id."");
@@ -28,7 +35,7 @@
         public function CreateCategory($name,$description)
         {
             $result="Thêm thất bại!";
-            if(mysqli_query($this->conn, "INSERT INTO `category`(name,descriptiom) VALUES('".$name."','".$description."')"))
+            if(mysqli_query($this->conn, "INSERT INTO `category`(name,description) VALUES('".$name."','".$description."')"))
             {
                 $result="Thêm thành công!";
             }

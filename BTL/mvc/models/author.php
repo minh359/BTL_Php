@@ -16,6 +16,14 @@
             "totalPages" => $totalPages
         ];
         }
+        public function GetAllAuthor()
+        {
+        
+        $author = mysqli_query($this->conn, "SELECT * FROM `author` ");
+        return $data = [
+            "sp" => $author
+        ];
+        }
         public function GetById($id)
         {
             $author = mysqli_query($this->conn, "SELECT * FROM `author` Where id=".$id."");

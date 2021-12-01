@@ -23,7 +23,7 @@
                   <p class="font-weight-light text-muted mb-0">allenmoreno@gmail.com</p>
                 </div>
                 <a class="dropdown-item"><i class="dropdown-item-icon icon-user text-primary"></i> My Profile</a>
-                <a class="dropdown-item" href="/BTL/mvc/views/Admin_pages/pages/samples/login.html"><i class="dropdown-item-icon icon-power text-primary"></i>Sign Out</a>
+                <a class="dropdown-item" href="http://localhost:808/BTL/Admin/Logout/"><i class="dropdown-item-icon icon-power text-primary"></i>Sign Out</a>
               </div>
             </li>
           </ul>

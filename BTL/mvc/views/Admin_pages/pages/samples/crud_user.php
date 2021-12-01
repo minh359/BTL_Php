@@ -1,4 +1,4 @@
-<form class="crud" method='POST' >
+<form class="crud" method='POST' action=<?php $_SERVER['PHP_SELF'] ?> name="form_user" onsubmit="sm_user(event)">
   
   <?php
               require_once "./mvc/views/Admin_pages/" . $data["page"] . ".php";
@@ -39,7 +39,7 @@
                   echo "<div class='form-group row'></div>
                   <label class='col-lg-3 col-form-label form-control-label'>Username</label>
                   <div class='col-lg-3'></div>
-                  <input class='form-control' type='text' value='".$row["username"]."' id='username'>";
+                  <input class='form-control' type='text' value='".$row["username"]."' id='username' disabled>";
                   echo "<div class='form-group row'></div>
                   <label class='col-lg-3 col-form-label form-control-label'>Password</label>
                   <div class='col-lg-3'></div>
@@ -60,7 +60,7 @@
                   <div class='col-lg-6 text-center'></div>";
                   if($data["method"]=="Update")
                   {
-                    echo "<input type='button' class='btn btn-primary'  value = 'Save changes' id='update' onclick=\"location.href='/BTL/Admin/UserTable/1'\">";
+                    echo "<input type='submit' class='btn btn-primary'  value = 'Save changes' id='update' >";
                   }  
                   if($data["method"]=="Delete")
                   {

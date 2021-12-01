@@ -30,11 +30,11 @@
                 echo "<div class='form-group row'></div>
                 <label class='col-lg-3 col-form-label form-control-label'>Id</label>
                 <div class='col-lg-3'></div>
-                <input class='form-control' id='id' type='text' >";
+                <input class='form-control' id='id' type='number' required>";
                 echo "<div class='form-group row'></div>
                 <label class='col-lg-3 col-form-label form-control-label'>Name</label>
                 <div class='col-lg-3'></div>
-                <input class='form-control' id='name' type='text' >";
+                <input class='form-control' id='name' type='text' required>";
                 echo "<div class='form-group row'></div>
                 <label class='col-lg-3 col-form-label form-control-label'>Description</label>
                 <div class='col-lg-3'></div>
@@ -42,26 +42,35 @@
                 echo "<div class='form-group row'></div>
                 <label class='col-lg-3 col-form-label form-control-label'>Avatar </label>
                 <div class='col-lg-3'></div>
-                <input class='form-control'id='avatar' type='text' >";
+                <input class='form-control'id='avatar' type='text' required>";
                 echo "<div class='form-group row'></div>
                 <label class='col-lg-3 col-form-label form-control-label'>State</label>
                 <div class='col-lg-3'></div>
-                <input class='form-control' id='state' type='text ' >";
+                <input class='form-control' id='state' type='text ' required>";
                 echo "<div class='form-group row'></div>
                 <label class='col-lg-3 col-form-label form-control-label'>Post date</label>
                 <div class='col-lg-3'></div>
-                <input class='form-control' id='postdate' type='date ' >";
+                <input class='form-control' id='postdate' type='date ' required>";
                 echo "<div class='form-group row'></div>
-                <label class='col-lg-3 col-form-label form-control-label'>Author</label>
-                <div class='col-lg-3'></div>
-                <input class='form-control' id='author' type='text ' >";
+                        <label class='col-lg-3 col-form-label form-control-label'>Author</label>";
+                echo "<select name='author_sl' id='author_sl'class='form-control'>
+                <option disabled selected>-- Select Author --</option>";
+                while ($row = mysqli_fetch_array($data["author"]["sp"])) {
+                        echo "<option value='" . $row['id'] . "'>" . $row['name'] . "</option>";
+                }
+                echo "</select>";
+
                 echo "<div class='form-group row'></div>
-                <label class='col-lg-3 col-form-label form-control-label'>Category</label>
-                <div class='col-lg-3'></div>
-                <input class='form-control' id='category' type='text ' >";
+                        <label class='col-lg-3 col-form-label form-control-label'>Category</label>";
+                echo "<select name='category_sl' id='category_sl' class='form-control'>
+                <option disabled selected>-- Select Category --</option>";
+                while ($row = mysqli_fetch_array($data["category"]["sp"])) {
+                        echo "<option value='" . $row['id'] . "'>" . $row['name'] . "</option>";
+                }
+                echo "</select>";
+
                 echo "<div class='form-group row'></div>
                 <div class='col-lg-6 text-center'></div>";
-                // echo "<input type='button' class='btn btn-primary'   value = 'Create' onclick=\"location.href='/BTL/Admin/CreateUser/".$data["source"]["username"]."/".md5($data["source"]["password"])."/".$data["source"]["name"]."/".$data["source"]["dob"]."/".$data["source"]["email"]."'\">";    
                 echo "<input type='button' class='btn btn-primary'   value = 'Create' id='create' onclick=\"location.href='/BTL/Admin/NovelTable/1'\">";
                 echo "<input type='button' class='btn btn-secondary' value='Cancel' onclick=\"location.href='javascript:history.go(-1)'\">";
         } else {
@@ -72,11 +81,11 @@
                         echo "<div class='form-group row'></div>
                 <label class='col-lg-3 col-form-label form-control-label'>Id</label>
                 <div class='col-lg-3'></div>
-                <input class='form-control' id='id' value='" . $row["id"] . "' type='text' >";
+                <input class='form-control' id='id' value='" . $row["id"] . "' type='number' >";
                         echo "<div class='form-group row'></div>
                 <label class='col-lg-3 col-form-label form-control-label'>Name</label>
                 <div class='col-lg-3'></div>
-                <input class='form-control' id='name' value='" . $row["name"] . "' type='text' >";
+                <input class='form-control' id='name' value='" . $row["name"] . "' type='text' required>";
                         echo "<div class='form-group row'></div>
                 <label class='col-lg-3 col-form-label form-control-label'>Description</label>
                 <div class='col-lg-3'></div>
@@ -84,33 +93,46 @@
                         echo "<div class='form-group row'></div>
                 <label class='col-lg-3 col-form-label form-control-label'>Avatar </label>
                 <div class='col-lg-3'></div>
-                <input class='form-control'id='avatar'value='" . $row["avatar"] . "' type='text' >";
+                <input class='form-control'id='avatar'value='" . $row["avatar"] . "' type='text' required>";
                         echo "<div class='form-group row'></div>
                 <label class='col-lg-3 col-form-label form-control-label'>State</label>
                 <div class='col-lg-3'></div>
-                <input class='form-control' id='state' value='" . $row["state"] . "' type='text ' >";
+                <input class='form-control' id='state' value='" . $row["state"] . "' type='text ' required>";
                         echo "<div class='form-group row'></div>
                 <label class='col-lg-3 col-form-label form-control-label'>Post date</label>
                 <div class='col-lg-3'></div>
-                <input class='form-control' id='postdate' value='" . $row["post_date"] . "' type='date ' >";
+                <input class='form-control' id='postdate' value='" . $row["post_date"] . "' type='date ' required>";
+
+
                         echo "<div class='form-group row'></div>
-                <label class='col-lg-3 col-form-label form-control-label'>Author</label>
-                <div class='col-lg-3'></div>
-                <input class='form-control' id='author' value='" . $row["author_id"] . "' type='text ' >";
+                <label class='col-lg-3 col-form-label form-control-label'>Author</label>";
+                        echo "<select name='author_sl' id='author_sl'class='form-control'>";
+                        while ($lst = mysqli_fetch_array($data["author"]["sp"])) {
+                                if($lst['id']==$row["author_id"])
+                                {
+                                        echo "<option value='" . $lst['id'] . "' selected>" . $lst['name'] . "</option>";
+                                }
+                                else{
+                                        echo "<option value='" . $lst['id'] . "'>" . $lst['name'] . "</option>";
+                                }
+                        }
+                        echo "</select>";
+
                         echo "<div class='form-group row'></div>
-                <label class='col-lg-3 col-form-label form-control-label'>Category</label>
-                <div class='col-lg-3'></div>
-                <input class='form-control' id='category' value='" . $row["category_id"] . "' type='text ' >";
+                <label class='col-lg-3 col-form-label form-control-label'>Category</label>";
+                        echo "<select name='category_sl' id='category_sl' class='form-control'>";
+                        while ($lst = mysqli_fetch_array($data["category"]["sp"])) {
+                                if($lst['id']==$row["category_id"])
+                                {
+                                        echo "<option value='" . $lst['id'] . "' selected>" . $lst['name'] . "</option>";
+                                }
+                                else{
+                                        echo "<option value='" . $lst['id'] . "'>" . $lst['name'] . "</option>";
+                                }
+                        }
+                        echo "</select>";
                         echo "<div class='form-group row'></div>
                 <div class='col-lg-6 text-center'></div>";
-                        //         echo "<div class='form-group row'></div>
-                        // <div class='col-lg-3'>
-                        //         <ul>";
-                        //         while ($row2 = mysqli_fetch_array($data["chapter"]["sp"])) {
-                        //                 echo "<li><a href='/BTL/Admin/CrudChapter/View/" . $row["id"] . "/" . $row2["id"] . "'>" . $row2["chapter_number"] . "</a></li>";
-                        //         }
-                        //         echo            "</ul>
-                        // </div>";
                         echo "<div class='row'>
     <div class='col-md-12 grid-margin stretch-card'>
       <div class='card' style='width:100%'>
@@ -120,7 +142,7 @@
           <table class='table table-hover table-bordered'>
             <thead>
               <tr>
-                <th>Name<i class=' icon-user'></i></th>
+                <th>Name<i class=' icon-book-open'></i></th>
                 <th style='text-align: center;'>Action<i  class='icon-settings'></i></th>
               </tr>
             </thead>

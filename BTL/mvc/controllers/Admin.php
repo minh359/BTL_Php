@@ -1,8 +1,30 @@
 <?php
     class Admin extends Controller{
+        public function IsLoged(){
+            if(isset($_SESSION["admin"]))
+            {
+                
+                return true;
+            }
+            return false;
+        }
+        public function Login(){
+            $_SESSION["admin"]="ok";
+            $this->Index();
+        }
+        public function LogOut(){
+            $_SESSION["admin"]=null;
+            $this->Index();
+        }
         public function Index(){
-            $this->view("Admin_layout",["page"=>"partials/_devinfo"
-                    ]);
+            if($this->IsLoged())
+            {
+                $this->view("Admin_layout",["page"=>"partials/_devinfo"]);
+            }
+            else
+            {
+                $this->view("Admin_pages/pages/samples/login",[]);
+            }
         }
 
         public function UserTable($page){
@@ -39,6 +61,7 @@
             }
             
         }
+
         public function DeleteUser($username)
         {
             $source=$this->model("user_account");
@@ -88,12 +111,15 @@
         }
         public function CrudNovel($method,$id,$page)
         {
-            if($method=='Create' && $id=='0' && $page='0')
+            if($method=='Create' && $id=='0' && $page=='0')
             {
                 $this->view("Admin_layout",[
                     "func"=>"Admin/CrudNovel",
                     "page"=>"pages/samples/detail_novel",
-                    "method"=>$method
+                    "method"=>$method,
+                    "author"=>$this->model("author")->GetAllAuthor(),
+                    "category"=>$this->model("category")->GetAllCategory(),
+                    
                 ]);
             }
             else
@@ -106,8 +132,8 @@
                     "method"=>$method,
                     "novel"=>$source->GetById($id),
                     "has_paging"=>true,
-                    "category"=>$this->model("category")->GetById($id),
-                    "author"=>$this->model("author")->GetById($id),
+                    "author"=>$this->model("author")->GetAllAuthor(),
+                    "category"=>$this->model("category")->GetAllCategory(),
                     "source"=>$this->model("chapter")->GetByNovel($id,$page)
                 ]);
             }
@@ -212,6 +238,146 @@
                     "source"=>$source2->GetById($novel_id),
                     "chapter"=>$this->model("chapter")->GetByNovel($novel_id)
                 ]);
+        }
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        public function AuthorTable($page){
+            //có thể xử lý các hàm lấy dữ liệu từ DB ở đây, sau đó đưa vào list để 
+            //truyền vào view
+            $source=$this->model("author");
+            // truyền tên master view, page, tham số
+            $this->view("Admin_layout",[
+                        "func"=>"Admin/AuthorTable",
+                        "page"=>"pages/tables/author_table",
+                        "has_paging"=>true,
+                        "source"=>$source->GetAll($page)
+                    ]);
+        }
+        public function CrudAuthor($method,$id)
+        {
+            if($method=='Create' && $id=='0')
+            {
+                $this->view("Admin_layout",[
+                    "func"=>"Admin/CrudAuthor",
+                    "page"=>"pages/samples/crud_author",
+                    "method"=>$method,
+                ]);
+            }
+            else
+            {
+                $source=$this->model("author");
+                $this->view("Admin_layout",[
+                    "func"=>"Admin/CrudAuthor",
+                    "page"=>"pages/samples/crud_author",
+                    "method"=>$method,
+                    "source"=>$source->GetById($id)
+                ]);
+            }
+            
+        }
+
+        public function DeleteAuthor($id)
+        {
+            $source=$this->model("author");
+            $source->DeleteUser($id);
+            $this->view("Admin_layout",[
+                "func"=>"Admin/AuthorTable",
+                "page"=>"pages/tables/author_table",
+                "has_paging"=>true,
+                "source"=>$source->GetAll(1)
+            ]);
+        }
+        public function UpdateAuthor($id,$name)
+        {
+            $source=$this->model("author");
+            $source->EditAuthor($id,$name);
+            $this->view("Admin_layout",[
+                "func"=>"Admin/AuthorTable",
+                "page"=>"pages/tables/author_table",
+                "has_paging"=>true,
+                "source"=>$source->GetAll(1)
+            ]);
+        }
+        public function CreateAuthor($id,$name)
+        {
+            $source=$this->model("author");
+            $source->CreateUser($id,$name);
+            $this->view("Admin_layout",[
+                "func"=>"Admin/AuthorTable",
+                "page"=>"pages/tables/author_table",
+                "has_paging"=>true,
+                "source"=>$source->GetAll(1)
+            ]);
+        }
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        public function CategoryTable($page){
+            //có thể xử lý các hàm lấy dữ liệu từ DB ở đây, sau đó đưa vào list để 
+            //truyền vào view
+            $source=$this->model("category");
+            // truyền tên master view, page, tham số
+            $this->view("Admin_layout",[
+                        "func"=>"Admin/CategoryTable",
+                        "page"=>"pages/tables/category_table",
+                        "has_paging"=>true,
+                        "source"=>$source->GetAll($page)
+                    ]);
+        }
+        public function CrudCategory($method,$id)
+        {
+            if($method=='Create' && $id=='0')
+            {
+                $this->view("Admin_layout",[
+                    "func"=>"Admin/CrudCategory",
+                    "page"=>"pages/samples/crud_category",
+                    "method"=>$method,
+                ]);
+            }
+            else
+            {
+                $source=$this->model("category");
+                $this->view("Admin_layout",[
+                    "func"=>"Admin/CrudCategory",
+                    "page"=>"pages/samples/crud_category",
+                    "method"=>$method,
+                    "source"=>$source->GetById($id)
+                ]);
+            }
+            
+        }
+
+        public function DeleteCategory($id)
+        {
+            $source=$this->model("category");
+            $source->DeleteCategory($id);
+            $this->view("Admin_layout",[
+                "func"=>"Admin/AuthorTable",
+                "page"=>"pages/tables/category_table",
+                "has_paging"=>true,
+                "source"=>$source->GetAll(1)
+            ]);
+        }
+        public function UpdateCategory($id,$name)
+        {
+            $source=$this->model("category");
+            $source->EditCategory($id,$name);
+            $this->view("Admin_layout",[
+                "func"=>"Admin/CategoryTable",
+                "page"=>"pages/tables/category_table",
+                "has_paging"=>true,
+                "source"=>$source->GetAll(1)
+            ]);
+        }
+        public function CreateCategory($id,$name)
+        {
+            $source=$this->model("category");
+            $source->CreateCategory($id,$name);
+            $this->view("Admin_layout",[
+                "func"=>"Admin/CategoryTable",
+                "page"=>"pages/tables/category_table",
+                "has_paging"=>true,
+                "source"=>$source->GetAll(1)
+            ]);
         }
     }
 ?>

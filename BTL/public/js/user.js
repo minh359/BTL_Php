@@ -42,12 +42,9 @@ $(document).ready(function(){
                 dob:dob,
                 email:email,
             },
-            success: function () {
-                    alert("Sửa thành công");
-            },
-            error: function (e, status, jqXH) {
-                alert("có lỗi");
-            }
-        });
+            
+        });const url1=new URL('http://localhost:808/BTL/Admin/UserTable/1')
+            window.history.pushState({},'',url1);
     });
+    
 });

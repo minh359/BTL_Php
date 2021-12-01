@@ -33,14 +33,9 @@
           <table class="table table-hover table-bordered">
             <thead>
               <tr>
-                <th>id<i class=' icon-book-open'></i></th>
+                <th>id<i class=' icon-user'></i></th>
                 <th >Name<i class=' icon-lock'></i></th>
-                <th >Description<i class='  icon-user-following'></i></th>
-                <th >Avatar<i class=' icon-calendar'></i></th>
-                <th >State<i class='  icon-envelope-open'></i></th>
-                <th >Post date<i class='  icon-user-following'></i></th>
-                <th >Author<i class=' icon-user'></i></th>
-                <th >Category<i class='  icon-envelope-open'></i></th>
+                <th >Description<i class=' icon-lock'></i></th>
                 <th >Action<i  class='icon-settings'></i></th>
               </tr>
             </thead>
@@ -58,22 +53,17 @@
                 <td><label class='badge badge-email'>".$row["id"]."</label></td>
                 <td>".substr($row["name"],0,30)." ...</td>
                 <td>".substr($row["description"],0,30)." ...</td>
-                <td><img src='".$row["avatar"]."'></td>
-                <td>".$row["state"]."</td>
-                <td>".$row["post_date"]."</td>
-                <td class='text-success'>". $row["author_id"]. ".</td>
-                <td><label class='badge badge-email'>".$row["category_id"]."</label></td>
                 <td style='text-align: center;'>
-                    <a href='/BTL/Admin/CrudNovel/View/".$row["id"]."/1'><i class='icon-eye'></i></a>
-                    <a href='/BTL/Admin/CrudNovel/Update/".$row["id"]."/1'><i class='icon-wrench'></i></a>
-                    <a href='/BTL/Admin/CrudNovel/Delete/".$row["id"]."/1'><i class='icon-trash'></i></a>
+                    <a href='/BTL/Admin/CrudCategory/View/".$row["id"]."'><i class='icon-eye'></i></a>
+                    <a href='/BTL/Admin/CrudCategory/Update/".$row["id"]."'><i class='icon-wrench'></i></a>
+                    <a href='/BTL/Admin/CrudCategory/Delete/".$row["id"]."'><i class='icon-trash'></i></a>
                 </td>
                 </tr>";
               }
               ?>
             </tbody>
           </table>
-          <a href='/BTL/Admin/CrudNovel/Create/0/0'><i class='icon-plus'></i></a>
+          <a href='/BTL/Admin/CrudCategory/Create/0'><i class='icon-plus'></i></a>
           <?php if (!empty($data["has_paging"])) : ?>
             <div class="clear-both"></div>
             <?php

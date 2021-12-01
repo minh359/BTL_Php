@@ -34,13 +34,13 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/BTL/Admin/UserTable/1">
+              <a class="nav-link" href="/BTL/Admin/CategoryTable/1">
                 <span class="menu-title">Category</span>
                 <i class="icon-grid menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/BTL/Admin/UserTable/1">
+              <a class="nav-link" href="/BTL/Admin/AuthorTable/1">
                 <span class="menu-title">Author</span>
                 <i class="icon-grid menu-icon"></i>
               </a>
