@@ -32,21 +32,21 @@
                 <input class='form-control' id='novel_id' value='".$data["novel"]."' type='text' >";
     if ($data["method"] == 'Create') {
         echo "<div class='form-group row'></div>
-                <label class='col-lg-3 col-form-label form-control-label'>Id</label>
+                <label class='col-lg-3 col-form-label form-control-label'>Novel Id</label>
                 <div class='col-lg-3'></div>
-                <input class='form-control' id='id' value='' type='text' >";
+                <input class='form-control' id='novel_id' value='' type='text' >";
             echo "<div class='form-group row'></div>
                 <label class='col-lg-3 col-form-label form-control-label'>Name</label>
                 <div class='col-lg-3'></div>
-                <input class='form-control' id='name' value='' type='text' >";
+                <input class='form-control' id='chapter_number' value='' type='text' >";
             echo "<div class='form-group row'></div>
-                <label class='col-lg-3 col-form-label form-control-label'>Description</label>
+                <label class='col-lg-3 col-form-label form-control-label'>Content</label>
                 <div class='col-lg-3'></div>
-                <textarea class='form-control texteditor' name='description' id='description' rows='2'></textarea>";
+                <textarea class='form-control texteditor' name='content' id='content' rows='2'></textarea>";
             echo "<div class='form-group row'></div>
-                <label class='col-lg-3 col-form-label form-control-label'>Avatar </label>
+                <label class='col-lg-3 col-form-label form-control-label'>Image </label>
                 <div class='col-lg-3'></div>
-                <input class='form-control'id='avatar'value='' type='text' >";
+                <input class='form-control'id='image'value='' type='text' >";
         echo "<div class='form-group row'></div>
                 <div class='col-lg-6 text-center'></div>";
        echo "<input type='button' class='btn btn-primary'   value = 'Create' id='create' onclick=\"location.href='/BTL/Admin/NovelTable/1'\">";
@@ -66,14 +66,20 @@
                 <div class='col-lg-3'></div>
                 <input class='form-control' id='name' value='" . $row["chapter_number"] . "' type='text' >";
             echo "<div class='form-group row'></div>
-                <label class='col-lg-3 col-form-label form-control-label'>Description</label>
+                <label class='col-lg-3 col-form-label form-control-label'>Content</label>
                 <div class='col-lg-3'></div>
                 <textarea class='form-control texteditor' name='description' id='description' rows='50'>" . $row["content"] . "</textarea>
                 <p>Preview<br/>" . $row["content"] . "</p>";
+
             echo "<div class='form-group row'></div>
                 <label class='col-lg-3 col-form-label form-control-label'>Avatar </label>
                 <div class='col-lg-3'></div>
                 <input class='form-control'id='avatar'value='" . $row["image"] . "' type='text' >";
+
+            echo "<div class='form-group row'></div>
+                <label class='col-lg-3 col-form-label form-control-label'>Novel Id </label>
+                <div class='col-lg-3'></div>
+                <input class='form-control'id='novel_id'value='" . $row["novel_id"] . "' type='text' >";
         
         echo "<div class='form-group row'></div>
                 <div class='col-lg-6 text-center'></div>"; 

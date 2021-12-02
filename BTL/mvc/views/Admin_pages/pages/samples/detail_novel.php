@@ -62,7 +62,7 @@
                 echo "<div class='form-group row'></div>
                 <div class='col-lg-6 text-center'></div>";
                 // echo "<input type='button' class='btn btn-primary'   value = 'Create' onclick=\"location.href='/BTL/Admin/CreateUser/".$data["source"]["username"]."/".md5($data["source"]["password"])."/".$data["source"]["name"]."/".$data["source"]["dob"]."/".$data["source"]["email"]."'\">";    
-                echo "<input type='button' class='btn btn-primary'   value = 'Create' id='create' onclick=\"location.href='/BTL/Admin/NovelTable/1'\">";
+                echo "<input type='button' class='btn btn-primary'   value = 'Create' id='create_novel' onclick=\"location.href='/BTL/Admin/NovelTable/1'\">";
                 echo "<input type='button' class='btn btn-secondary' value='Cancel' onclick=\"location.href='javascript:history.go(-1)'\">";
         } else {
                 while ($row = mysqli_fetch_array($data["novel"]["sp"])) {
