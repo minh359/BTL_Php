@@ -53,8 +53,8 @@
                 <input class='form-control' id='postdate' type='date ' required>";
                 echo "<div class='form-group row'></div>
                         <label class='col-lg-3 col-form-label form-control-label'>Author</label>";
-                echo "<select name='author_sl' id='author_sl'class='form-control'>
-                <option disabled selected>-- Select Author --</option>";
+                echo "<select name='author_sl' id='author_id'class='form-control'>
+              ";
                 while ($row = mysqli_fetch_array($data["author"]["sp"])) {
                         echo "<option value='" . $row['id'] . "'>" . $row['name'] . "</option>";
                 }
@@ -62,8 +62,8 @@
 
                 echo "<div class='form-group row'></div>
                         <label class='col-lg-3 col-form-label form-control-label'>Category</label>";
-                echo "<select name='category_sl' id='category_sl' class='form-control'>
-                <option disabled selected>-- Select Category --</option>";
+                echo "<select name='category_sl' id='category_id' class='form-control'>
+              ";
                 while ($row = mysqli_fetch_array($data["category"]["sp"])) {
                         echo "<option value='" . $row['id'] . "'>" . $row['name'] . "</option>";
                 }
@@ -71,7 +71,7 @@
 
                 echo "<div class='form-group row'></div>
                 <div class='col-lg-6 text-center'></div>";
-                echo "<input type='button' class='btn btn-primary'   value = 'Create' id='create' onclick=\"location.href='/BTL/Admin/NovelTable/1'\">";
+                echo "<input type='button' class='btn btn-primary'   value = 'Create_novel' id='create_novel' onclick=\"location.href='/BTL/Admin/NovelTable/1'\">";
                 echo "<input type='button' class='btn btn-secondary' value='Cancel' onclick=\"location.href='javascript:history.go(-1)'\">";
         } else {
                 while ($row = mysqli_fetch_array($data["novel"]["sp"])) {

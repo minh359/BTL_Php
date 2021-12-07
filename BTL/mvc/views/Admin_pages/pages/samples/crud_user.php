@@ -28,7 +28,7 @@
                 echo "<div class='form-group row'></div>
                 <div class='col-lg-6 text-center'></div>";   
                 // echo "<input type='button' class='btn btn-primary'   value = 'Create' onclick=\"location.href='/BTL/Admin/CreateUser/".$data["source"]["username"]."/".md5($data["source"]["password"])."/".$data["source"]["name"]."/".$data["source"]["dob"]."/".$data["source"]["email"]."'\">";    
-                echo "<input type='button' class='btn btn-primary'   value = 'Create' id='create' onclick=\"location.href='/BTL/Admin/UserTable/1'\">";      
+                echo "<input type='button' class='btn btn-primary'   value = 'Create' id='create_user' onclick=\"location.href='/BTL/Admin/UserTable/1'\">";      
                 echo "<input type='button' class='btn btn-secondary' value='Cancel' onclick=\"location.href='javascript:history.go(-1)'\">";
                 
               }
@@ -60,7 +60,7 @@
                   <div class='col-lg-6 text-center'></div>";
                   if($data["method"]=="Update")
                   {
-                    echo "<input type='submit' class='btn btn-primary'  value = 'Save changes' id='update' >";
+                    echo "<input type='button' class='btn btn-primary'  value = 'Save changes' id='update_user' onclick=\"location.href='/BTL/Admin/UserTable/1'\">";
                   }  
                   if($data["method"]=="Delete")
                   {
