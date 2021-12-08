@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 24, 2021 lúc 11:36 AM
+-- Thời gian đã tạo: Th12 08, 2021 lúc 07:17 PM
 -- Phiên bản máy phục vụ: 10.4.20-MariaDB
 -- Phiên bản PHP: 8.0.9
 
@@ -56,8 +56,8 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `description`) VALUES
-(1, 'comedy', ''),
-(2, 'romance', '');
+(1, 'comedy', '1231'),
+(3, 'update123', 'heheh');
 
 -- --------------------------------------------------------
 
@@ -67,9 +67,9 @@ INSERT INTO `category` (`id`, `name`, `description`) VALUES
 
 CREATE TABLE `chapter` (
   `id` int(11) NOT NULL,
-  `chapter_number` int(11) NOT NULL,
+  `chapter_number` varchar(50) NOT NULL,
   `image` varchar(200) NOT NULL,
-  `content` varchar(9000) NOT NULL,
+  `content` mediumtext NOT NULL,
   `novel_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -78,7 +78,9 @@ CREATE TABLE `chapter` (
 --
 
 INSERT INTO `chapter` (`id`, `chapter_number`, `image`, `content`, `novel_id`) VALUES
-(1, 1, 'https://c1.hako.re/lightnovel/illusts/u75077-98867fd8-d103-44df-8d7e-d3c6933d3b2f.jpg', 'Takanishi Aisa.\r\n\r\nNếu hỏi 10 đứa con trai “Ai là người xinh nhất khối?”, chắc chắn hết 8 người sẽ trả lời “Takanishi Aisa.”\r\n\r\nNói thật thì dù có là bạn thuở nhỏ nhưng gương mặt tròn trịa của cô ấy khá xinh. Gu thời trang phong cách, lại còn học giỏi, thể thao cũng khá nữa, không thể chê vào đâu được.\r\n\r\nVà cô ấy đối xử tốt với tất cả mọi người, dù họ có là ai.\r\n\r\nTrừ tôi, tất nhiên rồi.\r\n\r\n“Sao đấy?”\r\n\r\n“Kh… không có gì.”\r\n\r\nCó lẽ cô ấy biết tôi đang nhìn chằm chằm nên mới hỏi tôi với giọng điệu lạnh như băng, đủ để cuốn bay cái nóng của mùa hè.\r\n\r\nVới hành động này, chắc chắn sẽ có người thắc mắc “Tại sao Takanishi lại cư xử với cậu ta như thế…”. Có một bức tường lớn ngăn cách tôi và Aisa, dù không phải do tôi làm. Cá nhân tôi nghĩ, chắc là vì cô ấy quá nổi tiếng và luôn nổi bật trong mắt mọi người.\r\n\r\n“Vậy à…”\r\n\r\nAisa nói rồi về lại chỗ ngồi của mình, đúng lúc đó có một người tiến về phía tôi.\r\n\r\n“Nè, cậu là bạn thuở nhỏ của Takanishi-san à?”\r\n\r\nNgười đang gọi tôi là Takizawa Akito.\r\n\r\nGã này bất cẩn đến mức không thèm chải mái tóc bù xù của mình nữa, cơ mà cậu ta chỉ là một tên phiền phức được nhiều người biết đến bởi vẻ ngoài điển trai thôi.\r\n\r\nMặc cho sự nổi tiếng của cậu ta, chúng tôi vẫn nhìn thấu lẫn nhau và trở thành bạn. Dù tôi chẳng nhớ lí do vì sao.\r\n\r\n“Thì ba mẹ bọn tớ thân nhau mà.”\r\n\r\nThực ra tôi và Aisa đã luôn thân thiết cho đến hồi tiểu học. Ít nhất đó là những gì tôi nghĩ.\r\n\r\nBố mẹ chúng tôi luôn đi chơi chung, nên tôi nghĩ mình và Aisa rất hợp nhau.\r\n\r\nNhưng giờ đây chỉ có bố mẹ của hai bên là thân thôi.\r\n\r\n“Không biết vì sao nhưng cái cách cô ấy nhìn cậu khác hẳn với mọi người đấy.”\r\n\r\n“Tớ không biết mình đã đắc tội gì nữa…”\r\n\r\nCó lẽ chúng tôi đã rời xa nhau từ khi lên sơ trung. \r\n\r\nMột sự cố bất ngờ nào đó đã xảy ra, và từ đó mọi chuyện thành ra như thế này.\r\n\r\nThần tượng của cả khối, người luôn hòa đồng với mọi người, và người duy nhất cô ấy lạnh nhạt lại chính là tôi.\r\n\r\n“Tớ không nghĩ cô ấy có ác cảm với cậu đâu…”\r\n\r\nAkito nói vậy, nhưng tôi chẳng biết nên nói gì khi nhìn ánh mắt của cô ấy dành cho tôi nữa.\r\n\r\n“Chẳng hiểu luôn…”\r\n\r\n“Takanishi đối xử với người khác một cách hoàn toàn xa lạ mà?”\r\n\r\n“Thật à?”\r\n\r\nĐó là con người của cô ấy. Dù liên tục bị đám đực rựa tỏ tình nhưng cô ấy lại không hứng thú với con trai, đám con gái cũng không ghét cô ấy. Trái lại cô ấy cũng rất nổi tiếng với họ, chủ yếu là vì ngoại hình và tính cách của mình. Kể cả bây giờ, cả nam lẫn nữ vẫn luôn vây quanh cô, dù cho họ có nằm ở top đầu của cái trường này.\r\n\r\n“Khi tớ nhìn vào đó, cảm giác như có một bức tường hay khoảng cách giữa tất cả bọn họ vậy.”\r\n\r\n“Thế à? Tớ chỉ thấy đám người nổi tiếng đang vui vẻ nói chuyện thôi.”\r\n\r\nTôi sợ phải hòa nhập hay thâm chí nhìn vào họ. Chỉ nhìn vào Aisa, vốn luôn ở một mình, cũng đủ khiến tôi cứng người rồi, huống gì đặt chân vào cái đám đông chói lóa như thế.\r\n\r\n“Nếu cậu nghĩ vậy thì tớ cũng không còn gì để nói.”\r\n\r\nSau khi nói một câu tôi không hề hiểu được, Akito lại ngồi về vị trí của mình. \r\n\r\nThật may vì những cuộc trò chuyện vẫn diễn ra như mọi khi, lớp học sắp bắt đầu rồi. \r\n\r\nTôi nhìn Aisa thêm một lần nữa sau khi lảng mắt khỏi Akito. Cô ấy vẫn đang tươi cười với mọi người trong lớp. Nhưng ngay khi chạm phải ánh mắt của tôi, cô ấy lạnh lùng nhìn tôi, khiến cả người tôi như đóng băng.\r\n\r\n“Hở…”\r\n\r\nThôi, chắc tôi không dám mơ tới việc nói chuyện với cô ấy đâu.\r\n\r\nNếu mắc lỗi với cô ấy, tôi sẽ xin lỗi, nhưng kiểu gì cũng bị người ta ghét tjhooi.\r\n\r\nĐó là ngày cuối cùng tôi cảm thấy thoải mái…', 1);
+(4, 'chương 1', 'https://ecntt.com/wp-content/uploads/2018/08/PHP.png', '<p>nội dung chương số 1</p>', 17),
+(5, 'abc2313123', 'https://ecntt.com/wp-content/uploads/2018/08/PHP.png', '<p>7t8u6ut6</p>', 17),
+(6, '1- chapter đầu của truyện 2', 'https://vn-live-01.slatic.net/p/4361f6d2309b6960f7b7495849e2fb41.jpg', '<p>nội dung chương</p>', 30);
 
 -- --------------------------------------------------------
 
@@ -102,7 +104,9 @@ CREATE TABLE `novel` (
 --
 
 INSERT INTO `novel` (`id`, `name`, `description`, `avatar`, `state`, `post_date`, `author_id`, `category_id`) VALUES
-(1, 'Osananajimi no Imouto no Kateikyoushi wo Hajimetara Soen Datta Osananajimi ga Kowai', 'Cô bạn thuở nhỏ xinh đẹp Aisa của cậu ta rất nổi tiếng, từ khi cả hai học chung.\r\n\r\nKhông ngạc nhiên lắm khi cả hai xa cách nhau.\r\n\r\nNhưng Aisa chỉ để mắt đến Kouki thôi chăng...?\r\n\r\nLàm gia sư cho em gái của Aisa, Minami, hai người họ lại chạm mặt nhau.\r\n\r\nChuyện tình hài hước lãng mạn giữa cô nàng idol lạnh lùng Aisa và Kouki bắt đầu từ đây.', 'https://res.cloudinary.com/lnvs-v2-2/image/upload/v1621365419/V3/aHR0cHM6Ly9jMS5oYWtvLnJlL2xpZ2h0bm92ZWwvaWxsdXN0cy91NzUwNzctNWM4ZWNhOWEtNmRhOC00ZWJmLWFiYTYtN2EzMzA2MGZlYTI5LmpwZw.jpg', 'Đang tiến hành', '2021-10-24', 1, 1);
+(17, 'ád', 'ád', 'https://www.facebook.com/photo.php?fbid=1635707739958861&set=pb.100005589514692.-2207520000..&type=3', 'Đang tiến hành', '2021-10-24', 1, 1),
+(30, 'Nguyễn', '<p>sadffasf</p>', 'https://ecntt.com/wp-content/uploads/2018/08/PHP.png', 'Hoàn thành', '2021-12-13', 1, 1),
+(32, 'Khải', '<p>avc</p>', 'sdfsdfsdf', 'đang tiến hành', '2021-12-09', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -123,11 +127,24 @@ CREATE TABLE `user_account` (
 --
 
 INSERT INTO `user_account` (`username`, `password`, `name`, `dob`, `email`) VALUES
-('admin', 'e10adc3949ba59abbe56e057f20f883e', 'update\n', '0000-00-00', 'admin@gmail.com'),
-('adminđư', 'ebca581f6eb4f900b1d5ddc483d797f5', 'ádasdasdasdasdasdsad', '2011-11-11', 'hoangminhzzz123@gmail.com'),
+('', 'd41d8cd98f00b204e9800998ecf8427e', '', '0000-00-00', ''),
+('a1233', 'e10adc3949ba59abbe56e057f20f883e', 'Nguyễn', '2021-12-15', 'hoangminhzzz123@gmail.com'),
+('ád', 'c91c03ea6c46a86cbc019be3d71d0a1a', 'Nguyễn', '2021-12-09', 'hoangminhzzz123@gmail.com'),
+('admin', 'c26be8aaf53b15054896983b43eb6a65', 'update123 khải ok ko?', '2021-10-12', 'admin@gmail.com'),
+('admin12', '14e1b600b1fd579f47433b88e8d85291', 'Nguyễn Hoàng Minh', '2021-06-15', 'hoangminhzzz123@gmail.com'),
+('adminsdadasdasd', '9e632d61c5951ff5f67531a15a1bfbf2', 'đâsdasdasd', '2022-01-01', 'hoangminhzzz123@gmail.com'),
+('d', '8277e0910d750195b448797616e091ad', 'd', '0000-00-00', ''),
+('dsa', 'd41d8cd98f00b204e9800998ecf8427e', '', '0000-00-00', ''),
+('dsadas', 'd41d8cd98f00b204e9800998ecf8427e', '', '0000-00-00', ''),
+('dsadasd', 'ac0b6ef12dcc5614cf0a67900e0dcbd5', 'dsadas', '2021-12-23', 'hoangminhzzz123@gmail.com'),
+('kp123', 'e10adc3949ba59abbe56e057f20f883e', 'kp', '2000-02-02', 'hoangminhzzz123@gmail.com'),
 ('minh', '123456', 'test update', '2000-11-11', 'm@gmail.com'),
-('minh12', '14e1b600b1fd579f47433b88e8d85291', '1235555', '0000-00-00', 'minh@gmail.com'),
+('minh12', 'c56d0e9a7ccec67b4ea131655038d604', '1235555', '0000-00-00', 'minh@gmail.com'),
+('minh359', 'e0e7caf416fde60c2f4458d2fa1e2ad9', 'Nguyễn Hoàng Minh', '2021-10-25', 'hoangminhzzz123@gmail.com'),
+('minh@', 'e10adc3949ba59abbe56e057f20f883e', 'Nguyễn', '2021-10-25', 'hoangminhzzz123@gmail.com'),
+('minhnguyen359', 'e10adc3949ba59abbe56e057f20f883e', 'Nguyễn', '2014-06-11', 'hoangminhzzz123@gmail.com'),
 ('mspinka', 'b56d0d1d3cb2ae2d14308ae96d56ead6', 'Hettie Waelchi', '2020-06-29', 'evert18@hotmail.com'),
+('nhp', 'e10adc3949ba59abbe56e057f20f883e', 'Nguyễn', '1995-06-22', 'hoangminhzzz123@gmail.com'),
 ('sadye79', '01b318cdd7602d820151d66394c5b72a', 'Joannie Runolfsdottir', '2013-10-04', 'scarlett.runte@yahoo.com'),
 ('smoen', 'fbda3b95064e1b10f6810e9cec612a33', 'Ms. Karli Turner Sr.', '2008-08-07', 'homenick.simeon@spencer.org'),
 ('srolfson', '800d6e03a85ec972e13b1b2226cbc377', 'Dorthy Padberg V', '2021-07-07', 'christina19@nienowbode.info'),
@@ -135,7 +152,8 @@ INSERT INTO `user_account` (`username`, `password`, `name`, `dob`, `email`) VALU
 ('tillman.maybell', '0b5693dd3e867754adb7fef8f556755d', 'Adeline Crist', '1996-08-12', 'jerde.mariah@gmail.com'),
 ('vhane', 'e1b08ed79356c7964ddce4221ad324de', 'Prof. Reagan Lakin', '1989-09-19', 'nikki83@hotmail.com'),
 ('zlarson', 'f1a283acef80eb6fd1da5ecd6a32b656', 'Ilene Runolfsdottir', '2020-05-26', 'haley.darren@gmail.com'),
-('zulauf.enrico', 'd10b3bc5ab669768fbb27f0ef7937247', 'Ms. Joanne Grimes', '1996-04-08', 'easter01@kozeyschoen.com');
+('zulauf.enrico', 'd10b3bc5ab669768fbb27f0ef7937247', 'Ms. Joanne Grimes', '1996-04-08', 'easter01@kozeyschoen.com'),
+('đâs', 'ac0b6ef12dcc5614cf0a67900e0dcbd5', 'đâsd', '2021-12-30', 'dsadas');
 
 -- --------------------------------------------------------
 
@@ -204,25 +222,25 @@ ALTER TABLE `user_novel_follow`
 -- AUTO_INCREMENT cho bảng `author`
 --
 ALTER TABLE `author`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `chapter`
 --
 ALTER TABLE `chapter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `novel`
 --
 ALTER TABLE `novel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT cho bảng `user_novel_follow`

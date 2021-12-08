@@ -1,9 +1,9 @@
 <?php
     class Admin extends Controller{
+        
         public function IsLoged(){
             if(isset($_SESSION["admin"]))
             {
-                
                 return true;
             }
             return false;
@@ -119,7 +119,7 @@
                     "method"=>$method,
                     "author"=>$this->model("author")->GetAllAuthor(),
                     "category"=>$this->model("category")->GetAllCategory(),
-                    
+                    "chapter"=>$this->model("chapter")->GetById('17')
                 ]);
             }
             else
@@ -279,7 +279,7 @@
         public function DeleteAuthor($id)
         {
             $source=$this->model("author");
-            $source->DeleteUser($id);
+            $source->DeleteAuthor($id);
             $this->view("Admin_layout",[
                 "func"=>"Admin/AuthorTable",
                 "page"=>"pages/tables/author_table",

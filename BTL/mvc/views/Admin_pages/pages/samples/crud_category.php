@@ -30,7 +30,7 @@
                 echo "<div class='form-group row'></div>
                 <label class='col-lg-3 col-form-label form-control-label'>Id</label>
                 <div class='col-lg-3'></div>
-                <input class='form-control' id='id' type='number' required>";
+                <input class='form-control' id='id' type='number' >";
                 echo "<div class='form-group row'></div>
                 <label class='col-lg-3 col-form-label form-control-label'>Name</label>
                 <div class='col-lg-3'></div>
@@ -38,11 +38,11 @@
                 echo "<div class='form-group row'></div>
                 <label class='col-lg-3 col-form-label form-control-label'>Description</label>
                 <div class='col-lg-3'></div>
-                <input class='form-control' id='name' type='text' required>";
+                <input class='form-control' id='description' type='text' required>";
                 echo "<div class='form-group row'></div>
                 <div class='col-lg-6 text-center'></div>";
                 // echo "<input type='button' class='btn btn-primary'   value = 'Create' onclick=\"location.href='/BTL/Admin/CreateUser/".$data["source"]["username"]."/".md5($data["source"]["password"])."/".$data["source"]["name"]."/".$data["source"]["dob"]."/".$data["source"]["email"]."'\">";    
-                echo "<input type='button' class='btn btn-primary'   value = 'Create' id='create' onclick=\"location.href='/BTL/Admin/CategoryTable/1'\">";
+                echo "<input type='submit' class='btn btn-primary'   value = 'Create' id='create_category' >";
                 echo "<input type='button' class='btn btn-secondary' value='Cancel' onclick=\"location.href='javascript:history.go(-1)'\">";
         } else {
                 while ($row = mysqli_fetch_array($data["source"]["sp"])) {
@@ -59,9 +59,9 @@
                 echo "<div class='form-group row'></div>
                 <label class='col-lg-3 col-form-label form-control-label' value='" . $row["description"] . "'  >Description</label>
                 <div class='col-lg-3'></div>
-                <input class='form-control' id='name' type='text' required>";
+                <input class='form-control' id='description' type='text' required>";
                         if ($data["method"] == "Update") {
-                                echo "<input type='button' class='btn btn-primary'  value = 'Save changes' id='update' onclick=\"location.href='/BTL/Admin/CategoryTable/1'\">";
+                                echo "<input type='submit' class='btn btn-primary'  value = 'Save changes' id='update_category' >";
                         }
                         if ($data["method"] == "Delete") {
                                 echo "<span>Bạn có chắc muốn xóa truyện " . $row["name"] . "?</span><br/>";

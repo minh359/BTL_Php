@@ -57,7 +57,6 @@
             $post_date = date($_POST['post_date']);
             $author_id = ($_POST['author_id']);
             $category_id = ($_POST['category_id']);
-            echo $name.$description.$avatar.$state.$post_date;
             $result=$this->model-> CreateNovel($name,$description,$avatar,$state,$post_date,$author_id,$category_id);
             return $result;
         }
@@ -68,9 +67,9 @@
             $description = $_POST['description'];
             $avatar = ($_POST['avatar']);
             $state = ($_POST['state']);
-            $post_date = date($_POST['postdate']);
-            $author_id = ($_POST['author']);
-            $category_id = ($_POST['category']);
+            $post_date = date($_POST['post_date']);
+            $author_id = ($_POST['author_id']);
+            $category_id = ($_POST['category_id']);
             $result=$this->model-> UpdateNovel($id,$name,$description,$avatar,$state,$post_date,$author_id,$category_id);
             return $result;
         }
@@ -121,7 +120,7 @@
             $id = $_POST['id'];
             $description=$_POST['description'];
             $name = $_POST['name'];
-            $result=$this->model-> CreateCategory($id,$name,$description);
+            $result=$this->model-> UpdateCategory($id,$name,$description);
             return $result;
         }
     }

@@ -8,7 +8,7 @@ $(document).ready(function(){
         $.ajax({
             url: 'http://localhost:808/BTL/Api/CreateUser',
             type: 'POST',
-            dataType: "json",
+            dataType: "json",async: true,
             data: {
                 username:un,
                 password:pass,
@@ -16,12 +16,12 @@ $(document).ready(function(){
                 dob:dob,
                 email:email,
             },
-            success: function () {
+            success: function (data) {
                     alert("Thêm thành công");
             },
-            error: function (e, status, jqXH) {
-                alert("có lỗi");
-            }
+            // error: function (e, status, jqXH) {
+            //     alert("Vui lòng nhập đầy đủ thông tin");
+            // }
         });
     });
     $('#update_user').click(function(){
@@ -69,11 +69,11 @@ $(document).ready(function(){
                  author_id    :  author_id   ,
                  category_id  :  category_id ,
             },
-            success: function () {
+            success: function (data) {
                 alert("Thêm thành công");
             },
             error: function (e, status, jqXH) {
-                alert("có lỗi");
+                alert("Vui lòng nhập đầy đủ thông tin");
             }
         });
     });
@@ -85,8 +85,9 @@ $(document).ready(function(){
         var avatar = $('#avatar').val();
         var state = $('#state').val();
         var post_date = $('#postdate').val();
-        var author_id = $('#author').val();
-        var category_id = $('#category').val();
+        var author_id   = $('#author_sl option:selected').val();
+        var category_id = $('#category_sl option:selected').val();
+        alert(name+description+avatar+state+post_date+author_id+category_id);
         $.ajax({
             url: 'http://localhost:808/BTL/Api/UpdateNovel',
             type: 'POST',
@@ -101,11 +102,11 @@ $(document).ready(function(){
                 author_id    :  author_id,
                 category_id  :  category_id,
             },
-            success: function () {
+            success: function (data) {
                 alert("Thêm thành công");
             },
             error: function (e, status, jqXH) {
-                alert("có lỗi");
+                alert("Vui lòng nhập đầy đủ thông tin");
             }
         });
     });
@@ -126,11 +127,11 @@ $(document).ready(function(){
                 content         :  content          ,
                 novel_id        :  novel_id         ,
             },
-            success: function () {
+            success: function (data) {
                 alert("Thêm thành công");
             },
             error: function (e, status, jqXH) {
-                alert("có lỗi");
+                alert("Vui lòng nhập đầy đủ thông tin");
             }
         });
     });
@@ -152,11 +153,11 @@ $(document).ready(function(){
                 content         :  content,
                 novel_id        :  novel_id,
             },
-            success: function () {
+            success: function (data) {
                 alert("Thêm thành công");
             },
             error: function (e, status, jqXH) {
-                alert("có lỗi");
+                alert("Vui lòng nhập đầy đủ thông tin");
             }
         });
     });
@@ -170,11 +171,11 @@ $(document).ready(function(){
             data: {
                 name  :  name,
             },
-            success: function () {
+            success: function (data) {
                 alert("Thêm thành công");
             },
             error: function (e, status, jqXH) {
-                alert("có lỗi");
+                alert("Vui lòng nhập đầy đủ thông tin");
             }
         });
     });
@@ -191,11 +192,11 @@ $(document).ready(function(){
                 name  :  name,
 
             },
-            success: function () {
+            success: function (data) {
                 alert("Thêm thành công");
             },
             error: function (e, status, jqXH) {
-                alert("có lỗi");
+                alert("Vui lòng nhập đầy đủ thông tin");
             }
         });
     });
@@ -211,11 +212,11 @@ $(document).ready(function(){
                 name  :  name,
                 description:description,
             },
-            success: function () {
+            success: function (data) {
                 alert("Thêm thành công");
             },
             error: function (e, status, jqXH) {
-                alert("có lỗi");
+                alert("Vui lòng nhập đầy đủ thông tin");
             }
         });
     });
@@ -233,11 +234,11 @@ $(document).ready(function(){
                 name  :  name,
                 description:description,
             },
-            success: function () {
+            success: function (data) {
                 alert("Thêm thành công");
             },
             error: function (e, status, jqXH) {
-                alert("có lỗi");
+                alert("Vui lòng nhập đầy đủ thông tin");
             }
         });
     });

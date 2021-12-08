@@ -24,11 +24,11 @@
             ];
         
         }
-        public function CreateNovel($name,$description,$avatar,$author_id,$category_id)
+        public function CreateNovel($name,$description,$avatar,$state,$post_date,$author_id,$category_id)
         {
             $result="Thêm thất bại!";
             if(mysqli_query($this->conn, "INSERT INTO `novel`(name,description,avatar,post_date,state,author_id,category_id) 
-                VALUES('".$$name."','".$description."','".$avatar."','" . date("Y/m/d") . "','Đang tiến hành','".$author_id."','".$category_id."')"))
+                VALUES('".$name."','".$description."','".$avatar."','" . $post_date . "','".$state."','".$author_id."','".$category_id."')"))
             {
                 $result="Thêm thành công!";
             }
@@ -46,11 +46,13 @@
             }
             return $result;
         }
-        public function UpdateNovel($id,$name,$description,$avatar,$author_id,$category_id)
+        public function UpdateNovel($id,$name,$description,$avatar,$state,$post_date,$author_id,$category_id)
         {
             $result=false;
             if(mysqli_query($this->conn, "UPDATE `novel` SET name='".$name."',description='".$description."',
             avatar='".$avatar."',
+            state='".$state."',
+            post_date='".$post_date."',
             author_id='".$author_id."',
             category_id='".$category_id."', where id='".$id."'"))
             {

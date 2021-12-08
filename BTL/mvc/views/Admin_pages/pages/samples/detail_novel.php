@@ -21,7 +21,7 @@
                 }
         </style>
 </head>
-<form class="crud" method='POST'>
+<form class="crud" method='POST' action=<?php $_SERVER['PHP_SELF'] ?> >
 
         <?php
         require_once "./mvc/views/Admin_pages/" . $data["page"] . ".php";
@@ -30,7 +30,7 @@
                 echo "<div class='form-group row'></div>
                 <label class='col-lg-3 col-form-label form-control-label'>Id</label>
                 <div class='col-lg-3'></div>
-                <input class='form-control' id='id' type='number' required>";
+                <input class='form-control' id='id' type='number' >";
                 echo "<div class='form-group row'></div>
                 <label class='col-lg-3 col-form-label form-control-label'>Name</label>
                 <div class='col-lg-3'></div>
@@ -50,7 +50,7 @@
                 echo "<div class='form-group row'></div>
                 <label class='col-lg-3 col-form-label form-control-label'>Post date</label>
                 <div class='col-lg-3'></div>
-                <input class='form-control' id='postdate' type='date ' required>";
+                <input class='form-control' id='postdate' type='date' required>";
                 echo "<div class='form-group row'></div>
                         <label class='col-lg-3 col-form-label form-control-label'>Author</label>";
                 echo "<select name='author_sl' id='author_id'class='form-control'>
@@ -71,7 +71,7 @@
 
                 echo "<div class='form-group row'></div>
                 <div class='col-lg-6 text-center'></div>";
-                echo "<input type='button' class='btn btn-primary'   value = 'Create_novel' id='create_novel' onclick=\"location.href='/BTL/Admin/NovelTable/1'\">";
+                echo "<input type='submit' class='btn btn-primary'   value = 'Create_novel' id='create_novel' >";
                 echo "<input type='button' class='btn btn-secondary' value='Cancel' onclick=\"location.href='javascript:history.go(-1)'\">";
         } else {
                 while ($row = mysqli_fetch_array($data["novel"]["sp"])) {
@@ -97,11 +97,11 @@
                         echo "<div class='form-group row'></div>
                 <label class='col-lg-3 col-form-label form-control-label'>State</label>
                 <div class='col-lg-3'></div>
-                <input class='form-control' id='state' value='" . $row["state"] . "' type='text ' required>";
+                <input class='form-control' id='state' value='" . $row["state"] . "' type='text' required>";
                         echo "<div class='form-group row'></div>
                 <label class='col-lg-3 col-form-label form-control-label'>Post date</label>
                 <div class='col-lg-3'></div>
-                <input class='form-control' id='postdate' value='" . $row["post_date"] . "' type='date ' required>";
+                <input class='form-control' id='postdate' value='" . date($row["post_date"]) . "' type='date' required>";
 
 
                         echo "<div class='form-group row'></div>
@@ -171,7 +171,8 @@
                         include './mvc/views/Admin_pages/partials/pagination.php';
 
                         if ($data["method"] == "Update") {
-                                echo "<input type='button' class='btn btn-primary'  value = 'Save changes' id='update' onclick=\"location.href='/BTL/Admin/UserTable/1'\">";
+                                echo "<input type='submit' class='btn btn-primary'  value = 'Save changes' id='update_novel' ";
+                                echo "<input type='button' class='btn btn-secondary' value='Cancel' onclick=\"location.href='javascript:history.go(-1)'\">";
                         }
                         if ($data["method"] == "Delete") {
                                 echo "<span>Bạn có chắc muốn xóa truyện " . $row["name"] . "?</span><br/>";
